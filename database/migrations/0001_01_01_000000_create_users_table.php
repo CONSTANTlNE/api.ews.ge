@@ -20,6 +20,10 @@ return new class extends Migration
             $table->string('provider');
             $table->string('provider_id');
             $table->string('adminpass');
+            $table->boolean('backupUser')->default(0)->index();
+            $table->boolean('admin')->default(0)->index();
+            $table->boolean('superAdmin')->default(0)->index();
+            $table->bigInteger('adminID')->nullable()->index();
             $table->rememberToken();
             $table->timestamps();
         });

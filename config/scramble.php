@@ -29,7 +29,7 @@ return [
         /*
          * Description rendered on the home page of the API documentation (`/docs/api`).
          */
-        'description' => 'Based on the "most popular open source PHP image processing library" Intervention Image , this API provides a set of endpoints for resizing, converting and cropping images.',
+        'description' => 'Based on the "most popular open source PHP image processing library" Intervention Image ( https://image.intervention.io/v3 ) , this API provides a set of endpoints for resizing, converting and cropping images.',
     ],
 
     /*
@@ -80,7 +80,7 @@ return [
 
     'middleware' => [
         'web',
-        RestrictedDocsAccess::class,
+//        RestrictedDocsAccess::class,
     ],
 
     'extensions' => [],

@@ -3,7 +3,7 @@
         <div class="m-header flex items-center py-4 px-6 h-header-height">
             <a href="../dashboard/index.html" class="b-brand flex items-center gap-3">
                 <!-- ========   Change your logo from here   ============ -->
-                <img src="../assets/images/logo-dark.svg" class="img-fluid logo-lg" alt="logo" />
+                <img src="../assets/images/logo-dark.svg" class="img-fluid logo-lg" alt="logo"/>
                 <span class="badge bg-success-500/10 text-success-500 rounded-full theme-version">v1.1.0</span>
             </a>
         </div>
@@ -26,22 +26,27 @@
                         <span class="pc-badge">2</span>
                     </a>
                     <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link" href="../dashboard/index.html" data-i18n="Default">Default</a></li>
-                        <li class="pc-item"><a class="pc-link" href="../dashboard/analytics.html" data-i18n="Analytics">Analytics</a></li>
-                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html" data-i18n="Finance">Finance</a></li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/index.html" data-i18n="Default">Default</a>
+                        </li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/analytics.html" data-i18n="Analytics">Analytics</a>
+                        </li>
+                        <li class="pc-item"><a class="pc-link" href="../dashboard/finance.html" data-i18n="Finance">Finance</a>
+                        </li>
                     </ul>
                 </li>
                 {{--Single ink--}}
-                <li class="pc-item">
-                    <a href="../widget/w_statistics.html" class="pc-link">
-            <span class="pc-micon">
-              <svg class="pc-icon">
-                <use xlink:href="#custom-story"></use>
-              </svg>
-            </span>
-                        <span class="pc-mtext" data-i18n="Statistics">Statistics</span>
-                    </a>
-                </li>
+                @if(auth()->user()->superAdmin)
+                    <li class="pc-item">
+                        <a href="{{route('backupusers')}}" class="pc-link">
+                            <span class="pc-micon">
+                              <svg class="pc-icon">
+                                <use xlink:href="#custom-story"></use>
+                              </svg>
+                            </span>
+                            <span class="pc-mtext" data-i18n="Backup Users">Backup Users</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

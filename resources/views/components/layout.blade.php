@@ -61,7 +61,8 @@
 <!-- [ Main Content ] start -->
 <div class="pc-container">
     <div class="pc-content">
-     @yield('dashboard')
+        @yield('dashboard')
+        @yield('backupusers')
     </div>
 </div>
 

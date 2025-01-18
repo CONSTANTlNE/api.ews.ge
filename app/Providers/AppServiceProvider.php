@@ -28,14 +28,15 @@ class AppServiceProvider extends ServiceProvider
 //            return in_array($user->email, ['admin@app.com']);
 //        });
 
+        Gate::define('viewApiDocs', function (?User $user) {
+            return true; // Allow all users, including guests
+        });
+
         Scramble::afterOpenApiGenerated(function (OpenApi $openApi) {
             $openApi->secure(
                 SecurityScheme::http('bearer')
             );
         });
 
-        Gate::define('viewApiDocs', function (User $user) {
-            return true;
-        });
     }
 }
