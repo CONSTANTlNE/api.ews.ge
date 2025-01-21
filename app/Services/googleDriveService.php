@@ -2,9 +2,12 @@
 
 namespace App\Services;
 
+use App\Models\GoogleFile;
+use Exception;
 use Google_Client;
 use Google_Service_Drive;
 use Google_Service_Drive_DriveFile;
+use Google_Service_Exception;
 
 class googleDriveService
 {
@@ -31,15 +34,27 @@ class googleDriveService
             'parents' => [$folderId],
         ]);
 
-        $fileContent = file_get_contents($file->getRealPath());
+        //this needed for uploadby form
+//        $fileContent = file_get_contents($file->getRealPath());
 
-        $file = $this->drive->files->create($fileMetadata, [
-            'data'       => $fileContent,
+        $uploadedFile = $this->drive->files->create($fileMetadata, [
+            'data'       => $file,
             'uploadType' => 'media',
         ]);
 
-        return $file->id;
+        return $uploadedFile->id;
 
+    }
+
+    public function deleteFile($fileId){
+
+        try {
+            $this->drive->files->delete($fileId);
+
+            return true;
+        } catch (Google_Service_Exception $e) {
+            return false;
+        }
     }
 
 

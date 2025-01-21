@@ -16,8 +16,7 @@ class ApiController extends Controller
 
     public function delete(Request $request)
     {
-
-     $request->user()->tokens()->where('id', $request->token_id)->first()->delete();
+        $request->user()->tokens()->where('id', $request->token_id)->first()->delete();
 
         return back();
     }

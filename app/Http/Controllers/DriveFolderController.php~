@@ -24,10 +24,7 @@ class DriveFolderController extends Controller
 
     {
         $folder = DriveFolder::find($request->folder_id);
-
         $folder->delete();
-
-
         return back();
     }
 

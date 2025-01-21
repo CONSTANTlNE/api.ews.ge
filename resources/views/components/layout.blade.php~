@@ -119,7 +119,7 @@
 </script>
 
 
-{{--@include('components.settings')--}}
+@include('components.settings')
 
 @if(session('alert_error'))
     <script>

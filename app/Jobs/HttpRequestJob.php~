@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Jobs;
+
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Support\Facades\Http;
+
+class HttpRequestJob implements ShouldQueue
+{
+    use Queueable;
+
+    public $url;
+
+    public function __construct($url)
+    {
+        $this->url = $url;
+    }
+
+    public function handle()
+    {
+
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+        ])
+            ->timeout(120)
+            ->get($this->url);
+    }
+}

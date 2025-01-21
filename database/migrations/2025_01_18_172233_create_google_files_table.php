@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('drive_folder_id')->constrained()->onDelete('cascade');
             $table->string('google_file_id');
+            $table->string('file_name')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

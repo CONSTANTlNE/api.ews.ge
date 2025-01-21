@@ -60,6 +60,6 @@ class User extends Authenticatable
 
     public function files():HasMany
     {
-        return $this->hasMany(GoogleFile::class);
+        return $this->hasMany(BackupFile::class);
     }
 }

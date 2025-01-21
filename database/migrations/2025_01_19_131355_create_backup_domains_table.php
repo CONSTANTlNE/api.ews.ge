@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('drive_folders', function (Blueprint $table) {
+        Schema::create('backup_domains', function (Blueprint $table) {
             $table->id();
-            $table->string('folderID');
-            $table->string('folderName');
-            $table->boolean('is_active')->default(false);
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained();
+            $table->string('domain');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('drive_folders');
+        Schema::dropIfExists('bakup_domains');
     }
 };

@@ -24,7 +24,6 @@ return new class extends Migration
             $table->boolean('admin')->default(0)->index();
             $table->boolean('superAdmin')->default(0)->index();
             $table->bigInteger('adminID')->nullable()->index();
-            $table->string('user_app_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
